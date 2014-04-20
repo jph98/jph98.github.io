@@ -1,11 +1,15 @@
 request = $.ajax({
     url: "https://api.github.com/users/jph98/repos",
-    type: "get"
+    type: "get",
+    data: {
+      type: "public",
+      sort: "full_name",
+      direction: "asc",
+      per_page: "100"
+    }
 });
 
 request.done(function(repositories) {
-
-    console.log("Done");
 
     // Load the external template and apply the json data
     $.get('project.mustache.html', function(template, textStatus, jqXhr) {
