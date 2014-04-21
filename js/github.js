@@ -20,9 +20,10 @@ request.done(function(repositories) {
                                { projects: repositories } );
 
       $("#github-projects").append(output);
-
     });
 
+    $("#github-projects-data").append("" + repositories.length);
+    
 });
 
 request.fail(function(jqXHR, textStatus) {
